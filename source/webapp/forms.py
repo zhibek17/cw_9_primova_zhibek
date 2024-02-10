@@ -18,4 +18,4 @@ class CategoryForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['text', 'author', 'announcement']
+        fields = ['text']

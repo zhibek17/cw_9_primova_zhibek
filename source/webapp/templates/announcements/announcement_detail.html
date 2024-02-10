@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        div{
+            text-align: center;
+        }
+        h1{
+            color: red;
+            padding: 40px;
+        }
+    </style>
+  <div>
+    <h1>Подробнее о товаре:</h1>
+    <div class="card-body">
+      <h3 class="card-title">{{ announcement.title }}</h3>
+      <img src="{{ announcement.image.url }}" alt="{{ announcement.title }}" style="max-width: 300px; max-height: 300px;">
+      <h6 class="card-text">Описание: {{ announcement.description }}</h6>
+      <h6 class="card-text">Автор: {{ announcement.author }}</h6>
+      <h6 class="card-text">Категория: {{ announcement.category }}</h6>
+      <h6 class="card-text">Цена: {{ announcement.price }} сом</h6>
+      <h6 class="card-text">Статус: {{ announcement.get_status_display }}</h6>
+      <p class="card-text">Добавлено: {{ announcement.created_at|date:"Y-m-d" }}</p>
+      <p class="card-text">Опубликовано: {{ announcement.published_at|date:"Y-m-d" }}</p>
+      <a href="{% url 'index' %}" class="btn btn-danger">На главную</a>
+      <a href="{% url 'announcement_update' pk=announcement.pk %}" class="btn btn-success">Обновить</a>
+      <a href="{% url 'announcement_delete' pk=announcement.pk %}" class="btn btn-secondary">Удалить</a>
+    </div>
+
+  </div>
+
+{% endblock %}

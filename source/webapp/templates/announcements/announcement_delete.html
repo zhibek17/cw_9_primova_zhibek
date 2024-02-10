@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        h1 {
+            text-align: center;
+            padding: 40px;
+            color: darkred;
+        }
+    </style>
+    <div class="container">
+        <h1>Удалить Объявление</h1>
+        <h3>Вы уверенны что хотите удалить данное объявление?</h3>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="Да"/>
+        </form>
+        <a href="{% url 'announcement_detail' pk=announcement.pk %}">Нет</a>
+    </div>
+{% endblock %}

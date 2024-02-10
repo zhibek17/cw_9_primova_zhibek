@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Обновление{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>Обновить объявление</h1>
+        <form method="post">
+            {% include 'partial/announcement_form.html' %}
+        </form>
+    </div>
+{% endblock %}
